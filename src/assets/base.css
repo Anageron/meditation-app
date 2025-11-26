@@ -5,6 +5,8 @@
   --color-text-inverted: #000000;
   --color-background: #253334;
   --color-bg-card: #F7F3F0;
+  --color-bg-button: #7c9a92;
+  --color-button-hover-status:#69b09c;
   --second-family:"Alegreya Sans", sans-serif;
   --color-card-button-hover: #202728;
 }
@@ -14,8 +16,11 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
   font-weight: normal;
 }
+
+
 
 body {
   min-height: 100vh;

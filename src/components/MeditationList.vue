@@ -1,6 +1,6 @@
 <script lang="ts" setup>
+import ButtonIcon from '@/components/ButtonIcon.vue';
 import IconPlay from '@/Icons/IconPlay.vue';
-import ButtonIcon from './ButtonIcon.vue';
 import { useMeditationListStore } from '@/stores/meditation.store';
 import { onMounted } from 'vue';
 
