@@ -1,48 +1,110 @@
-# .
+# Bookmark App
 
-This template should help get you started developing with Vue 3 in Vite.
+Приложение для управления закладками (bookmarks) с аутентификацией пользователей.
 
-## Recommended IDE Setup
+## Описание
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Bookmark App - это веб-приложение на основе Vue 3 и Vite, предназначенное для удобного хранения и организации интернет-закладок. Приложение позволяет пользователям регистрироваться, аутентифицироваться и управлять своими закладками, группируя их по категориям.
 
-## Recommended Browser Setup
+## Функциональные возможности
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- Аутентификация пользователей (вход в систему)
+- Управление профилем пользователя
+- Создание, редактирование и удаление категорий закладок
+- Добавление, изменение и удаление закладок
+- Просмотр закладок по категориям
+- Хранение данных в локальном хранилище браузера
 
-## Type Support for `.vue` Imports in TS
+## Технологии
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Vue 3 (Composition API)
+- TypeScript
+- Vite (сборщик проекта)
+- Pinia (управление состоянием)
+- Vue Router (маршрутизация)
+- Axios (HTTP-запросы)
+- ESLint и Prettier (линтинг и форматирование кода)
 
-## Customize configuration
+## Архитектура
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **stores**: Хранилища Pinia для управления состоянием приложения (аутентификация, профиль, закладки, категории)
+- **views**: Компоненты представлений для различных страниц приложения
+- **components**: Переиспользуемые компоненты интерфейса
+- **api**: Конфигурация API и HTTP-клиент
+- **Interfaces**: TypeScript-интерфейсы для типизации данных
 
-## Project Setup
+## Установка и запуск
 
-```sh
+### Предварительные требования
+
+- Node.js (версия ^20.19.0 или >=22.12.0)
+- npm или yarn
+
+### Установка зависимостей
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Запуск в режиме разработки
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Приложение будет доступно по адресу http://localhost:5173
 
-```sh
+### Сборка для продакшена
+
+```bash
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Проверка типов
 
-```sh
+```bash
+npm run type-check
+```
+
+### Линтинг кода
+
+```bash
 npm run lint
 ```
+
+### Форматирование кода
+
+```bash
+npm run format
+```
+
+## Структура проекта
+
+```
+src/
+├── api.ts                 # Конфигурация HTTP-клиента и маршруты API
+├── routes.ts             # Маршруты приложения
+├── App.vue               # Корневой компонент приложения
+├── main.ts               # Точка входа в приложение
+├── assets/               # Статические ресурсы
+├── components/           # Компоненты интерфейса
+├── views/                # Компоненты страниц
+├── stores/               # Хранилища Pinia
+│   ├── auth.store.ts     # Хранилище аутентификации
+│   ├── bookmark.store.ts # Хранилище закладок
+│   ├── category.store.ts # Хранилище категорий
+│   └── profile.store.ts  # Хранилище профиля
+└── Interfaces/           # TypeScript-интерфейсы
+```
+
+## Настройка API
+
+Приложение ожидает бэкенд API по адресу `http://localhost:3000/api`. Убедитесь, что ваш сервер API запущен по этому адресу.
+
+## Авторизация
+
+Приложение реализует защиту маршрутов: пользователь должен быть аутентифицирован для доступа к основной функциональности. Токен аутентификации хранится в localStorage и автоматически добавляется к HTTP-запросам.
+
+## Статус разработки
+
+Это приложение находится в стадии разработки. Некоторые функции могут быть не полностью реализованы.
